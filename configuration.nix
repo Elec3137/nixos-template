@@ -32,7 +32,7 @@
     # systemd-boot is the standard
     systemd-boot.enable = true;
     # if you have a limited efi partition, use grub instead
-    # be careful if your /boot folder is encrypted after this
+    # be careful if your /boot folder is encrypted
     # grub.enable = true;
     # grub.useOSProber = true;
     # grub.splashImage = null;
