@@ -61,6 +61,13 @@
     # NetworkManager is required for most of the network managment used by desktop enviroments
     # also offers commandline interface accessable as "nmcli"
     networkmanager.enable = true;
+    # alternatively, there is wpa_supplicant, a much simpler system
+    # wireless.enable = true;
+    # wireless.networks = {
+    #   NETWORK_NAME = {
+    #     psk = "PASSWORD";
+    #   };
+    # };
   };
 
   services = {
