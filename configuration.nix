@@ -14,7 +14,7 @@
 
   # enable useful nix tools, and the flakes system
   nix.settings.experimental-features = "nix-command flakes";
-  # make sure to specify "--flake /etc/nixos#HOSTNAME" on rebuild
+  # make sure to always specify "--flake /etc/nixos#HOSTNAME" on rebuild
   # replace "HOSTNAME" with your system's hostname, reflected in flake.nix
 
   # NixOS uses the lts kernel by default, override it with the latest if you need to
@@ -123,7 +123,7 @@
     ];
   };
 
-  # Remember to set your time zone!
+  # FIXME Remember to set your time zone!
   time.timeZone = "";
 
   # disable the default display manager (graphical login prompt at boot)
@@ -140,7 +140,7 @@
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  # replace "nixuser" with the username you'd like to use
+  # FIXME replace "nixuser" with the username you'd like to use
   users.users.nixuser = {
     isNormalUser = true;
     extraGroups = [
@@ -157,6 +157,7 @@
 
   # enable rust replacement for sudo; more sensible defaults
   security.sudo-rs.enable = true;
+
   services.openssh.enable = true;
   # only accept key authentication, for security
   services.openssh.settings.PasswordAuthentication = false;
