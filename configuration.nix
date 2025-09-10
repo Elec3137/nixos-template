@@ -265,6 +265,9 @@
       "mnjggcdmjocbbbhaepdhchncahnbgone" # sponsorblock
       # "ocaahdebbfolfmndjeplogmgcagdmblk" # chromium web store extension for updating other extensions on chromium
     ];
+    defaultSearchProviderEnabled = true;
+    defaultSearchProviderSearchURL = "https://www.startpage.com/sp/search?query={searchTerms}&cat=web&pl=opensearch&language=english";
+    defaultSearchProviderSuggestURL = "https://www.startpage.com/osuggestions?q={searchTerms}";
   };
 
   # fcitx input method
