@@ -171,6 +171,8 @@
   # List packages installed in system profile.
   # You can use https://search.nixos.org/packages to find more packages
   environment.systemPackages = with pkgs; [
+    ungoogled-chromium
+
     # video player
     haruna
 
@@ -257,8 +259,9 @@
   };
 
   programs.chromium = {
-    enable = true;
-    package = pkgs.ungoogled-chromium;
+    # enable = true;
+    # this won't work until https://github.com/NixOS/nixpkgs/pull/394028
+    # package = pkgs.ungoogled-chromium;
     extensions = [
       "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
       "eimadpbcbfnmbkopoojfekhnkhdbieeh" # dark reader
