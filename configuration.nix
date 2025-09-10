@@ -171,10 +171,6 @@
   # List packages installed in system profile.
   # You can use https://search.nixos.org/packages to find more packages
   environment.systemPackages = with pkgs; [
-    # browser(s)
-    librewolf
-    ungoogled-chromium
-
     # video player
     haruna
 
@@ -245,6 +241,31 @@
     # for video encoding/decoding, and all else ffmpeg does
     ffmpeg
   ];
+
+  programs.firefox = {
+    # enable = true;
+    package = pkgs.librewolf;
+    preferences = {
+      "privacy.resistFingerprinting" = false; # due to it forcing light theme
+      "webgl.disabled" = false;
+
+      # these should only be on by the user's request
+      "privacy.clearHistory.cookiesAndStorage" = false;
+      "privacy.clearOnShutdown.cookies" = false;
+      "privacy.clearOnShutdown_v2.cookiesAndStorage" = false; # this one seems to be the normal setting
+    };
+  };
+
+  programs.chromium = {
+    enable = true;
+    package = pkgs.ungoogled-chromium;
+    extensions = [
+      "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
+      "eimadpbcbfnmbkopoojfekhnkhdbieeh" # dark reader
+      "mnjggcdmjocbbbhaepdhchncahnbgone" # sponsorblock
+      # "ocaahdebbfolfmndjeplogmgcagdmblk" # chromium web store extension for updating other extensions on chromium
+    ];
+  };
 
   # fcitx input method
   i18n.inputMethod = {
