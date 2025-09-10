@@ -5,7 +5,6 @@
 
 {
   imports = [
-    ./hardware-configuation.nix
     # if you seperate configuration.nix into other files, add them here
   ];
 

@@ -14,6 +14,7 @@
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       modules = [
         ./configuration.nix
+        ./hardware-configuration.nix
 
         # nixos-hardware.nixosModules.YOUR_DEVICE
         # add your device if it is listed here: https://github.com/NixOS/nixos-hardware
