@@ -38,7 +38,7 @@
     # grub.useOSProber = true;
     # grub.splashImage = null;
     # grub.device = "nodev";
-    # efi.efiSysMountPoint = "/boot/efi";
+    # efi.efiSysMountPoint = "/boot/efi"; # make sure your mount point defined in hardware-configuation.nix aligns with this
   };
 
   # use tmpfs for /tmp to minimize disk wear
