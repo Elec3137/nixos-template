@@ -131,6 +131,12 @@
   # OR use sddm
   # services.displayManager.sddm.enable = true;
 
+  # you can also automatically start plasma on the first TTY upon login
+  # environment.interactiveShellInit = ''test $(tty) = /dev/tty1 && startplasma-wayland'';
+  # If you're using Full Disk Encryption, you could enable autologin too
+  # services.getty.autologinUser = "XXX"
+  # services.getty.autologinOnce = true;
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
