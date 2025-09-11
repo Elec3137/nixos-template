@@ -307,15 +307,22 @@
   # enable waydroid, a container-based solution to android emulation
   # virtualisation.waydroid.enable = true;
 
-  # enable Steam (games)
-  programs.steam.enable = true;
+  # Steam (games)
+  programs.steam = {
+    enable = true;
 
-  # add GE-Proton if it might help
-  # programs.steam.extraCompatPackages = [ pkgs.proton-ge-bin ];
+    # open firewall to let these steam features work
+    localNetworkGameTransfers.openFirewall = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
 
-  # protontricks, a winetricks wrapper for proton
-  # also includes protontricks-launch which allows you to launch apps in the selected steam game prefix
-  # programs.steam.protontricks.enable = true;
+    # add GE-Proton if it might help
+    # extraCompatPackages = [ pkgs.proton-ge-bin ];
+
+    # protontricks, a winetricks wrapper for proton
+    # also includes protontricks-launch which allows you to launch apps in the selected steam game prefix
+    # protontricks.enable = true;
+  };
 
   environment.variables = {
     MANGOHUD = 1; # enable mangohud by default on all vulkan games
