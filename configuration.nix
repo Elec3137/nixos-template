@@ -123,6 +123,26 @@
     ];
   };
 
+  programs.git = {
+    enable = true;
+    
+    config = {
+      init.defaultBranch = "main";
+      core.compression = 9;
+      credential.helper = "cache";
+
+      push.autoSetupRemote = true;
+      pull.ff = "only";
+      merge.conflictStyle = "zdiff3";
+      commit.verbose = true; # show diffs in commit editor
+
+      core.pager = "delta"; # depends on pkgs.delta!
+    	interactive.diffFilter = "delta --color-only";
+    	delta.navigate = true; # use n and N to move between diff sections
+    	delta.diff-highlight = true; # simpler mode, highlights inter-line changes
+    };
+  };
+
   # FIXME Remember to set your time zone!
   time.timeZone = "";
 
@@ -198,7 +218,6 @@
     nvtopPackages.amd
 
     # development
-    git
     delta
     python3
     # rust
