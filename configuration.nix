@@ -71,7 +71,7 @@
   };
 
   services = {
-    xserver.enable = true;
+    # xserver.enable = true;
     # your desktop enviroment of choice
     desktopManager.plasma6.enable = true;
 
