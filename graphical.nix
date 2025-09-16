@@ -67,6 +67,8 @@
     # performance overlay with fps control
     mangohud
 
+    vulkan-tools
+
     # encryption tool
     kdePackages.kleopatra
     # the password manager of choice
@@ -141,6 +143,10 @@
   environment.variables = {
     MANGOHUD = 1; # enable mangohud by default on all vulkan games
   };
+
+  # Open ports in the firewall (for graphical apps)
+  # networking.firewall.allowedTCPPorts = [ ];
+  # networking.firewall.allowedUDPPorts = [ ];
 
   # Nvidia block; uncomment only for Nvidia GPUs
   # hardware.graphics.enable = true; # OpenGL
