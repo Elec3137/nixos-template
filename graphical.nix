@@ -108,7 +108,7 @@
     defaultSearchProviderSuggestURL = "https://www.startpage.com/osuggestions?q={searchTerms}";
   };
 
-  # fcitx input method
+  # fcitx input method editor
   i18n.inputMethod = {
     enable = true;
     type = "fcitx5";
