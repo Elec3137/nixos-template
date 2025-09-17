@@ -157,6 +157,7 @@
     libjxl
     trash-cli
     sshfs
+    killall
     # rust replacements for coreutils
     fd
     ripgrep
