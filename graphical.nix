@@ -119,6 +119,12 @@
         fcitx5-gtk
       ];
 
+      settings.globalOptions = {
+        # also require "alt" for triggering IME
+        # this is to avoid conflicts with other apps/games
+        "Hotkey/TriggerKeys"."0" = "Control+Alt+space";
+      };
+
       # basic configuration for switching between normal mode and mozc
       settings.inputMethod = {
         "Groups/0" = {
