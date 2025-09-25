@@ -8,6 +8,17 @@
     # if you seperate configuration.nix into other files, add them here
   ];
 
+  # use lix, a fork of nix
+  # see: https://lix.systems/about
+  nixpkgs.overlays = [ (final: prev: {
+    inherit (prev.lixPackageSets.stable)
+      nixpkgs-review
+      nix-eval-jobs
+      nix-fast-build
+      colmena;
+  }) ];
+  nix.package = pkgs.lixPackageSets.stable.lix;
+
   # enable useful nix tools, and the flakes system
   nix.settings.experimental-features = "nix-command flakes";
   # make sure to always specify "--flake /etc/nixos#HOSTNAME" on rebuild
