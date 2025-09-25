@@ -145,6 +145,8 @@
 
         GroupOrder."0" = "Default";
       };
+
+      settings.addons.classicui.globalSection.Theme = "plasma";
     };
   };
 
