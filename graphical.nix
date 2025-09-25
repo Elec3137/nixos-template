@@ -51,7 +51,7 @@
     haruna
 
     # office suite
-    libreoffice-fresh
+    libreoffice-qt-fresh
 
     # switch these based on your gpu
     btop-rocm
