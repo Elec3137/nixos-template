@@ -10,6 +10,8 @@
 
   # use lix, a fork of nix
   # see: https://lix.systems/about
+  nix.package = pkgs.lixPackageSets.stable.lix;
+  # overlays so that all nix tools use lix
   nixpkgs.overlays = [ (final: prev: {
     inherit (prev.lixPackageSets.stable)
       nixpkgs-review
@@ -17,7 +19,6 @@
       nix-fast-build
       colmena;
   }) ];
-  nix.package = pkgs.lixPackageSets.stable.lix;
 
   # enable useful nix tools, and the flakes system
   nix.settings.experimental-features = "nix-command flakes";
