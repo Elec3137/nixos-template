@@ -87,7 +87,8 @@
   # and add alias for managing user dotfiles "dots"
   programs.fish.interactiveShellInit = ''
     ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
-    alias dots '${pkgs.git}/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
+    alias dots 'git --git-dir=$HOME/.dots/ --work-tree=$HOME'
+    alias nixos-rebuild 'nixos-rebuild --flake /etc/nixos#$(hostname -s) --ask-sudo-password --log-format multiline-with-logs'
   '';
   # avoid generating caches (enabled by fish) due to slowdowns during nixos-rebuild
   # may degrade autocompletion
