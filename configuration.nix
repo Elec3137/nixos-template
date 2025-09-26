@@ -101,10 +101,8 @@
   users.defaultUserShell = pkgs.fish;
   # avoid calling nix's command-not-found (doesn't work with flakes)
   programs.command-not-found.enable = false;
-  # display nix-shell packages on the right
-  # and add alias for managing user dotfiles "dots"
+  # add alias for managing user dotfiles "dots"
   programs.fish.interactiveShellInit = ''
-    ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
     alias dots 'git --git-dir=$HOME/.dots/ --work-tree=$HOME'
     alias nixos-rebuild 'nixos-rebuild --flake /etc/nixos#$(hostname -s) --ask-sudo-password --log-format multiline-with-logs'
   '';
@@ -215,7 +213,6 @@
     # nix
     nixfmt
     nixd
-    any-nix-shell
 
     # encryption
     gnupg
