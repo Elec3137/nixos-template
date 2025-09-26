@@ -47,8 +47,9 @@
   environment.systemPackages = with pkgs; [
     ungoogled-chromium
 
-    # video player
+    # videos
     haruna
+    kdePackages.kdenlive
 
     # office suite
     libreoffice-qt-fresh
