@@ -149,7 +149,7 @@
       settings.addons.classicui.globalSection.Theme = "plasma";
     };
   };
-  fonts.enableDefaultFonts = true;
+  fonts.enableDefaultPackages = true;
 
   # enable waydroid, a container-based solution to android emulation
   # virtualisation.waydroid.enable = true;
