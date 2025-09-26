@@ -43,13 +43,17 @@
     # OR if you have a limited efi partition, set the efi mount point to /boot/efi
     # efi.efiSysMountPoint = "/boot/efi"; # make sure your mount point defined in hardware-configuation.nix aligns with this
     # however systemd-boot does not support this configuration, so use grub instead
-    # be careful if your root partition is encrypted
     grub = {
       # enable = true;
     
       # modern installation
       device = "nodev";
       efiSupport = true;
+
+      # if your /boot partition is encrypted, enable this
+      # grub takes a long time to unlock a partition though, so this is undesirable
+      # and you might also need to embed the key into initramfs to avoid needing to enter the password twice
+      # enableCryptodisk = true;
 
       # keep the grub background black
       splashImage = null;
