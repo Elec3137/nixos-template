@@ -40,13 +40,26 @@
 
     # systemd-boot is the standard
     systemd-boot.enable = true;
-    # if you have a limited efi partition, use grub instead
-    # be careful if your /boot folder is encrypted
-    # grub.enable = true;
-    # grub.useOSProber = true;
-    # grub.splashImage = null;
-    # grub.device = "nodev";
+    # OR if you have a limited efi partition, set the efi mount point to /boot/efi
     # efi.efiSysMountPoint = "/boot/efi"; # make sure your mount point defined in hardware-configuation.nix aligns with this
+    # however systemd-boot does not support this configuration, so use grub instead
+    # be careful if your root partition is encrypted
+    grub = {
+      # enable = true;
+    
+      # modern installation
+      device = "nodev";
+      efiSupport = true;
+
+      # keep the grub background black
+      splashImage = null;
+
+      # look for other efi entries and add them to the boot menu
+      useOSProber = true;
+
+      # extra grub entry for memory testing
+      memtest86.enable = true;
+    };
   };
 
   # use tmpfs for /tmp to minimize disk wear
