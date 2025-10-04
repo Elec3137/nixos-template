@@ -33,8 +33,6 @@
   # use kdeconnect (opens ports)
   programs.kdeconnect.enable = true;
 
-  xdg.portal.enable = true;
-  
   # you can also automatically start plasma on the first TTY upon login
   # environment.interactiveShellInit = ''test $(tty) = /dev/tty1 && startplasma-wayland'';
   # If you're using Full Disk Encryption, you could enable autologin too
