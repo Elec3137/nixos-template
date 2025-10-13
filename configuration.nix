@@ -109,6 +109,8 @@
   # avoid generating caches (enabled by fish) due to slowdowns during nixos-rebuild
   # may degrade autocompletion
   documentation.man.generateCaches = false;
+  # enter dev env on cd
+  programs.direnv.enable = true;
 
   # enable bat, cat replacement
   # mostly for syntax highlighting manual pages
