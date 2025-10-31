@@ -23,6 +23,11 @@
   # enable useful nix tools, and the flakes system
   nix.settings.experimental-features = "nix-command flakes";
 
+  # reduces disk usage of the nix store
+  # It does this by performing `nix store optimize` incrementally for each new path
+  # source: https://nix.dev/manual/nix/2.26/command-ref/new-cli/nix3-store-optimise
+  nix.settings.auto-optimise-store = true;
+
   # NixOS uses the lts kernel by default, override it with the latest if you need to
   # boot.kernelPackages = pkgs.linuxPackages_latest;
 
