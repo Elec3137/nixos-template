@@ -22,9 +22,6 @@
 
   # enable useful nix tools, and the flakes system
   nix.settings.experimental-features = "nix-command flakes";
-  # make sure to always specify "--flake /etc/nixos#HOSTNAME" on rebuild
-  # replace "HOSTNAME" with your system's hostname, reflected in flake.nix
-  # example: `sudo nixos-rebuild switch --flake /etc/nixos#nixos`
 
   # NixOS uses the lts kernel by default, override it with the latest if you need to
   # boot.kernelPackages = pkgs.linuxPackages_latest;
