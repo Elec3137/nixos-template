@@ -101,16 +101,22 @@
   # use Fish, the nicest shell :)
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
-  # avoid calling nix's command-not-found (doesn't work with flakes)
-  programs.command-not-found.enable = false;
+  # avoid generating caches (enabled by fish) due to slowdowns during nixos-rebuild
+  # this may degrade autocompletion
+  documentation.man.generateCaches = false;
+
   # add alias for managing user dotfiles "dots"
+  # and for nixos-rebuild convinience
   programs.fish.interactiveShellInit = ''
     alias dots 'git --git-dir=$HOME/.dots/ --work-tree=$HOME'
     alias nixos-rebuild 'nixos-rebuild --ask-sudo-password --log-format multiline-with-logs'
-  '';
-  # avoid generating caches (enabled by fish) due to slowdowns during nixos-rebuild
-  # may degrade autocompletion
-  documentation.man.generateCaches = false;
+  ''; # note that multiline-with-logs is only supported by lix
+
+  # avoid calling nix's command-not-found (doesn't work with flakes)
+  programs.command-not-found.enable = false;
+  # instead you can use:
+  # programs.nix-index.enable = true;
+
   # enter dev env on cd
   programs.direnv = {
     enable = true;
@@ -120,11 +126,11 @@
   };
 
   # enable bat, cat replacement
-  # mostly for syntax highlighting manual pages
   programs.bat = {
     enable = true;
     # settings.theme = "ansi";
     extraPackages = with pkgs.bat-extras; [
+      # for syntax highlighting manual pages
       batman
     ];
   };
