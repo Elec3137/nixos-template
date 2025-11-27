@@ -112,7 +112,12 @@
   # may degrade autocompletion
   documentation.man.generateCaches = false;
   # enter dev env on cd
-  programs.direnv.enable = true;
+  programs.direnv = {
+    enable = true;
+    # hide extra logging, that isn't particularly useful
+    # (for only using nix at least)
+    settings.global.hide_env_diff = true;
+  };
 
   # enable bat, cat replacement
   # mostly for syntax highlighting manual pages
