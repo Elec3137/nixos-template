@@ -22,12 +22,11 @@
   };
 
   # remove plasma6 packages you don't want
+  # from optionalPackages defined in nixos/modules/services/desktop-managers/plasma6.nix
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    oxygen
-    elisa
-    plasma-browser-integration
     plasma-workspace-wallpapers
     kwin-x11
+    elisa
     krdp
   ];
   # use kdeconnect (opens ports)
