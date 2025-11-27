@@ -97,12 +97,12 @@
     # package = pkgs.ungoogled-chromium;
     extensions = [
       "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
-      "eimadpbcbfnmbkopoojfekhnkhdbieeh" # dark reader
       "mnjggcdmjocbbbhaepdhchncahnbgone" # sponsorblock
+      "eimadpbcbfnmbkopoojfekhnkhdbieeh" # dark reader
       # "ocaahdebbfolfmndjeplogmgcagdmblk" # chromium web store extension for updating other extensions on chromium
     ];
     defaultSearchProviderEnabled = true;
-    defaultSearchProviderSearchURL = "https://www.startpage.com/sp/search?query={searchTerms}&cat=web&pl=opensearch&language=english";
+    defaultSearchProviderSearchURL = "https://www.startpage.com/sp/search?query={searchTerms";
     defaultSearchProviderSuggestURL = "https://www.startpage.com/osuggestions?q={searchTerms}";
   };
 
