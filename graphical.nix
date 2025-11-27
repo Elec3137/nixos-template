@@ -155,7 +155,7 @@
   # use virt-manager for any* guest
   # programs.virt-manager.enable = true;
   # virtualisation.libvirtd.enable = true;
-  # users.users.nixuser.extraGroups = [ "libvirtd" ];
+  # users.users.nixosuser.extraGroups = [ "libvirtd" ];
 
   # Steam (games)
   programs.steam = {

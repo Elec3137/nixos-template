@@ -163,8 +163,8 @@
   # OR use sddm
   # services.displayManager.sddm.enable = true;
 
-  # FIXME replace "nixuser" with the username you'd like to use
-  users.users.nixuser = {
+  # FIXME replace "nixosuser" with the username you'd like to use
+  users.users.nixosuser = {
     isNormalUser = true;
     extraGroups = [
       "networkmanager" # leave this here if you use NetworkManager
