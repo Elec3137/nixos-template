@@ -152,6 +152,11 @@
   # enable waydroid, a container-based solution to android emulation
   # virtualisation.waydroid.enable = true;
 
+  # use virt-manager for any* guest
+  # programs.virt-manager.enable = true;
+  # virtualisation.libvirtd.enable = true;
+  # users.users.nixuser.extraGroups = [ "libvirtd" ];
+
   # Steam (games)
   programs.steam = {
     enable = true;
