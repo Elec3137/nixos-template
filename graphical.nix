@@ -92,17 +92,21 @@
   };
 
   programs.chromium = {
-    # enable = true;
+    enable = true;
+
     # this won't work until https://github.com/NixOS/nixpkgs/pull/394028
     # package = pkgs.ungoogled-chromium;
+
+    # note: you cannot use policies to install extensions on ungoogled-chromium
+    # https://github.com/ungoogled-software/ungoogled-chromium/issues/1629
     extensions = [
-      "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
+      "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin *not working?)
       "mnjggcdmjocbbbhaepdhchncahnbgone" # sponsorblock
       "eimadpbcbfnmbkopoojfekhnkhdbieeh" # dark reader
       # "ocaahdebbfolfmndjeplogmgcagdmblk" # chromium web store extension for updating other extensions on chromium
     ];
     defaultSearchProviderEnabled = true;
-    defaultSearchProviderSearchURL = "https://www.startpage.com/sp/search?query={searchTerms";
+    defaultSearchProviderSearchURL = "https://www.startpage.com/sp/search?query={searchTerms}";
     defaultSearchProviderSuggestURL = "https://www.startpage.com/osuggestions?q={searchTerms}";
   };
 
