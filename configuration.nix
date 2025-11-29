@@ -172,8 +172,10 @@
       "wheel"
     ];
 
-    # uncomment and add to this list ssh public keys you want to be able to connect to this user
-    # openssh.authorizedKeys.keys = [ ];
+    # FIXME replace the key here with the key with which you'd like to have access to this user
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFy9h9uYLmuF/fXUHA+nYNPNwmLYXv+YZC1K7cX/lPul template"
+    ];
 
     # you can specify user-specific packages here:
     # packages = with pkgs; [];
