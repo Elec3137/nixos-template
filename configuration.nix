@@ -158,10 +158,11 @@
   # FIXME Remember to set your time zone!
   time.timeZone = "";
 
-  # disable the default display manager (graphical login prompt at boot)
+  # disable the default display manager. (graphical login prompt at boot)
+  # it is enabled by nixpkgs/nixos/modules/services/x11/xserver.nix
+  # if you have services.xserver.enable = true set, which you may not want
+  # especially if you use the xserver only for forwarding (ie with ssh)
   services.xserver.displayManager.lightdm.enable = false;
-  # OR use sddm
-  # services.displayManager.sddm.enable = true;
 
   # FIXME replace "nixosuser" with the username you'd like to use
   users.users.nixosuser = {

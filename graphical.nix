@@ -32,9 +32,12 @@
   # use kdeconnect (opens ports)
   programs.kdeconnect.enable = true;
 
-  # you can also automatically start plasma on the first TTY upon login
+  # the standard kde display manager (graphical login prompt)
+  services.displayManager.sddm.enable = true;
+
+  # OR you can automatically start plasma on the first TTY upon login
   # environment.interactiveShellInit = ''test $(tty) = /dev/tty1 && startplasma-wayland'';
-  # If you're using Full Disk Encryption, you could enable autologin too
+  # If you're using Full Disk Encryption, you could enable autologin in the shell as well
   # services.getty.autologinUser = "XXX";
   # services.getty.autologinOnce = true;
 
