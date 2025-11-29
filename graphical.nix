@@ -8,7 +8,6 @@
   hardware.bluetooth.enable = true;
 
   services = {
-    # xserver.enable = true;
     # your desktop enviroment of choice
     desktopManager.plasma6.enable = true;
 
