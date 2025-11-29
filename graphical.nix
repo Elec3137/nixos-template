@@ -8,17 +8,27 @@
   hardware.bluetooth.enable = true;
 
   services = {
-    # your desktop enviroment of choice
-    desktopManager.plasma6.enable = true;
-
-    # Enable sound.
-    # pulseaudio.enable = true;
-    # OR
+    # enable the standard sound system
     pipewire = {
       enable = true;
+      # enable backwards compatibility with legacy sound system
       pulse.enable = true;
     };
+    # OR enable the legacy sound system
+    # pulseaudio.enable = true;
+
+    # my personal favorite Desktop Enviroment
+    desktopManager.plasma6.enable = true;
+
+    # the standard KDE display manager (graphical login prompt)
+    displayManager.sddm.enable = true;
+
+    # If you're using Full Disk Encryption, you could enable autologin in the shell instead
+    # getty.autologinUser = "XXX";
+    # getty.autologinOnce = true;
   };
+  # if you're not using a display manager, you can automatically start plasma on the first TTY upon login
+  # environment.interactiveShellInit = ''test $(tty) = /dev/tty1 && startplasma-wayland'';
 
   # remove plasma6 packages you don't want
   # from optionalPackages defined in nixos/modules/services/desktop-managers/plasma6.nix
@@ -30,15 +40,6 @@
   ];
   # use kdeconnect (opens ports)
   programs.kdeconnect.enable = true;
-
-  # the standard kde display manager (graphical login prompt)
-  services.displayManager.sddm.enable = true;
-
-  # OR you can automatically start plasma on the first TTY upon login
-  # environment.interactiveShellInit = ''test $(tty) = /dev/tty1 && startplasma-wayland'';
-  # If you're using Full Disk Encryption, you could enable autologin in the shell as well
-  # services.getty.autologinUser = "XXX";
-  # services.getty.autologinOnce = true;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
