@@ -22,6 +22,8 @@
 
   # enable useful nix tools, and the flakes system
   nix.settings.experimental-features = "nix-command flakes";
+  # you (should) never need this
+  nix.channel.enable = false;
 
   # reduces disk usage of the nix store
   # It does this by performing `nix store optimize` incrementally for each new path
