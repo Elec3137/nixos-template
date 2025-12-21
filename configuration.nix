@@ -109,7 +109,7 @@
 
   # add alias for managing user dotfiles "dots"
   # and for nixos-rebuild convinience
-  programs.fish.interactiveShellInit = ''
+  programs.fish.interactiveShellInit = /* sh */ ''
     alias dots 'git --git-dir=$HOME/.dots/ --work-tree=$HOME'
     alias nixos-rebuild 'nixos-rebuild --ask-sudo-password --log-format multiline-with-logs'
   ''; # note that multiline-with-logs is only supported by lix
