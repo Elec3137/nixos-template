@@ -112,12 +112,18 @@
   # this may degrade autocompletion
   documentation.man.generateCaches = false;
 
-  # add alias for managing user dotfiles "dots"
-  # and for nixos-rebuild convinience
-  programs.fish.interactiveShellInit = /* sh */ ''
-    alias dots 'git --git-dir=$HOME/.dots/ --work-tree=$HOME'
-    alias nixos-rebuild 'nixos-rebuild --ask-sudo-password --log-format multiline-with-logs'
-  ''; # note that multiline-with-logs is only supported by lix
+  environment.shellAliases = {
+    # for managing user dotfiles
+    # see: https://www.atlassian.com/git/tutorials/dotfiles
+    dots = /*sh*/ ''git "--git-dir=$HOME/.dots/" "--work-tree=$HOME"'';
+
+    # make nixos-rebuild use sudo as needed
+    # note that multiline-with-logs is only supported by lix
+    nixos-rebuild = /*sh*/ ''nixos-rebuild --ask-sudo-password --log-format multiline-with-logs'';
+
+    # make nix-shell preserve the user's $SHELL
+    nix-shell = /*sh*/ ''nix-shell --command "export SHELL=$SHELL"'';
+  };
 
   # avoid calling nix's command-not-found (doesn't work with flakes)
   programs.command-not-found.enable = false;
