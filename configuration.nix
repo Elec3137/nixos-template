@@ -77,6 +77,11 @@
     tmpfsSize = "70%";
   };
 
+  # run fstrim monthly instead of weekly
+  # weekly is unecessary for preventing long-term performance degredation
+  # https://unix.stackexchange.com/questions/218076/ssd-how-often-should-i-do-fstrim
+  services.fstrim.interval = "monthly";
+
   # extra memory if you can spare the CPU cycles
   zramSwap = {
     enable = true;
