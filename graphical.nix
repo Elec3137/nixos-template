@@ -108,6 +108,8 @@
       "eimadpbcbfnmbkopoojfekhnkhdbieeh" # dark reader
       # "ocaahdebbfolfmndjeplogmgcagdmblk" # chromium web store extension for updating other extensions on chromium
     ];
+
+    # note: this will make it impossible to change search engines while the module is enabled
     defaultSearchProviderEnabled = true;
     defaultSearchProviderSearchURL = "https://www.startpage.com/sp/search?query={searchTerms}";
     defaultSearchProviderSuggestURL = "https://www.startpage.com/osuggestions?q={searchTerms}";
