@@ -233,6 +233,7 @@
     cargo
     rust-analyzer
     rustfmt
+    clippy
     # shell(s)
     fish-lsp
     bash-language-server
