@@ -6,6 +6,7 @@
 {
   imports = [
     ./browsers.nix
+    ./plasma.nix
     # ./games.nix
   ];
 
@@ -22,29 +23,10 @@
     # OR enable the legacy sound system
     # pulseaudio.enable = true;
 
-    # my personal favorite Desktop Enviroment
-    desktopManager.plasma6.enable = true;
-
-    # the standard KDE display manager (graphical login prompt)
-    displayManager.sddm.enable = true;
-
-    # If you're using Full Disk Encryption, you could enable autologin in the shell instead
+    # If you're using Full Disk Encryption, you could enable autologin in the shell
     # getty.autologinUser = "XXX";
     # getty.autologinOnce = true;
   };
-  # if you're not using a display manager, you can automatically start plasma on the first TTY upon login
-  # environment.interactiveShellInit = /* sh */ ''test $(tty) = /dev/tty1 && startplasma-wayland'';
-
-  # remove plasma6 packages you don't want
-  # from optionalPackages defined in nixos/modules/services/desktop-managers/plasma6.nix
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    plasma-workspace-wallpapers
-    kwin-x11
-    elisa
-    krdp
-  ];
-  # use kdeconnect (opens ports)
-  programs.kdeconnect.enable = true;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -72,7 +54,8 @@
     kdePackages.kleopatra
     # the password manager of choice
     keepassxc
-    kdePackages.plasma5support # keepassxc requires plasma5support for classic theme to look right
+    # keepassxc requires plasma5support for "classic" (system) theme to look right(ish) on plasma
+    kdePackages.plasma5support
     
     # torrenting client
     qbittorrent
