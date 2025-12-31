@@ -8,6 +8,7 @@
     ./browsers.nix
     ./plasma.nix
     # ./games.nix
+    # ./extra-packages.nix
     # ./virt.nix
   ];
 
@@ -33,29 +34,8 @@
   # services.printing.enable = true;
 
   environment.systemPackages = with pkgs; [
-    # videos
+    # media player
     mpv
-    kdePackages.kdenlive
-
-    # office suite
-    libreoffice-qt-fresh
-
-    # switch these based on your gpu
-    btop-rocm
-    nvtopPackages.amd
-
-    # use easyeffects (gui) to filter noise from microphone
-    easyeffects
-
-    # encryption tool
-    kdePackages.kleopatra
-    # the password manager of choice
-    keepassxc
-    # keepassxc requires plasma5support for "classic" (system) theme to look right(ish) on plasma
-    kdePackages.plasma5support
-    
-    # torrenting client
-    qbittorrent
   ];
 
   # enable default fonts (helps with emojis, etc)
