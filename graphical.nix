@@ -115,7 +115,13 @@
     defaultSearchProviderSuggestURL = "https://www.startpage.com/osuggestions?q={searchTerms}";
   };
 
-  # fcitx input method editor
+  # enable default fonts (helps with emojis, etc)
+  fonts.enableDefaultPackages = true;
+  # for higher quality asian fonts
+  # without this, chromium doesn't render asian text at all
+  fonts.packages = [ pkgs.noto-fonts-cjk-sans ];
+
+  # input method editor (ie for typing in japanese)
   i18n.inputMethod = {
     enable = true;
     type = "fcitx5";
@@ -156,7 +162,6 @@
       settings.addons.classicui.globalSection.Theme = "plasma";
     };
   };
-  fonts.enableDefaultPackages = true;
 
   # enable waydroid, a container-based solution to android emulation
   # virtualisation.waydroid.enable = true;
