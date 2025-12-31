@@ -181,7 +181,7 @@
     dedicatedServer.openFirewall = true;
 
     # add GE-Proton if it might help
-    # extraCompatPackages = [ pkgs.proton-ge-bin ];
+    extraCompatPackages = [ pkgs.proton-ge-bin ];
 
     # protontricks, a winetricks wrapper for proton
     # also includes protontricks-launch which allows you to launch apps in the selected steam game prefix
