@@ -48,7 +48,7 @@
     ungoogled-chromium
 
     # videos
-    haruna
+    mpv
     kdePackages.kdenlive
 
     # office suite
