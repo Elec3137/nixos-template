@@ -113,10 +113,6 @@
   documentation.man.generateCaches = false;
 
   environment.shellAliases = {
-    # for managing user dotfiles
-    # see: https://www.atlassian.com/git/tutorials/dotfiles
-    dots = /*sh*/ ''git "--git-dir=$HOME/.dots/" "--work-tree=$HOME"'';
-
     # make nixos-rebuild use sudo as needed
     # note that multiline-with-logs is only supported by lix
     nixos-rebuild = /*sh*/ ''nixos-rebuild --ask-sudo-password --log-format multiline-with-logs'';
