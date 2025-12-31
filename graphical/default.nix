@@ -8,6 +8,7 @@
     ./browsers.nix
     ./plasma.nix
     # ./games.nix
+    # ./virt.nix
   ];
 
   # if you use bluetooth
@@ -42,10 +43,6 @@
     # switch these based on your gpu
     btop-rocm
     nvtopPackages.amd
-
-    # if you're using a wayland desktop;
-    wl-clipboard
-    wayland-utils
 
     # use easyeffects (gui) to filter noise from microphone
     easyeffects
@@ -108,14 +105,6 @@
       settings.addons.classicui.globalSection.Theme = "plasma";
     };
   };
-
-  # enable waydroid, a container-based solution to android emulation
-  # virtualisation.waydroid.enable = true;
-
-  # use virt-manager for any* guest
-  # programs.virt-manager.enable = true;
-  # virtualisation.libvirtd.enable = true;
-  # users.users.nixosuser.extraGroups = [ "libvirtd" ];
 
   # Open ports in the firewall (for graphical apps)
   # networking.firewall.allowedTCPPorts = [ ];
