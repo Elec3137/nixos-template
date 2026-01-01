@@ -8,6 +8,25 @@
     # if you seperate configuration.nix into other files, add them here
   ];
 
+  # FIXME remember to set your time zone!
+  time.timeZone = "";
+
+  # FIXME replace "XXX" with the username you'd like to use
+  users.users.XXX = {
+    isNormalUser = true;
+
+    extraGroups = [
+      "networkmanager" # leave this here if you use NetworkManager
+      "wheel"
+    ];
+
+    # key(s) with which you'd like to have access to this user through SSH
+    # FIXME replace the key here
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFy9h9uYLmuF/fXUHA+nYNPNwmLYXv+YZC1K7cX/lPul template"
+    ];
+  };
+
   # use lix, a fork of nix
   # see: https://lix.systems/about
   nix.package = pkgs.lixPackageSets.stable.lix;
@@ -164,31 +183,11 @@
     };
   };
 
-  # FIXME Remember to set your time zone!
-  time.timeZone = "";
-
   # disable the default display manager. (graphical login prompt at boot)
   # it is enabled by nixpkgs/nixos/modules/services/x11/xserver.nix
   # if you have services.xserver.enable = true set, which you may not want
   # especially if you use the xserver only for forwarding (ie with ssh)
   services.xserver.displayManager.lightdm.enable = false;
-
-  # FIXME replace "nixosuser" with the username you'd like to use
-  users.users.nixosuser = {
-    isNormalUser = true;
-    extraGroups = [
-      "networkmanager" # leave this here if you use NetworkManager
-      "wheel"
-    ];
-
-    # FIXME replace the key here with the key with which you'd like to have access to this user
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFy9h9uYLmuF/fXUHA+nYNPNwmLYXv+YZC1K7cX/lPul template"
-    ];
-
-    # you can specify user-specific packages here:
-    # packages = with pkgs; [];
-  };
 
   # enable rust replacement for sudo; more sensible defaults
   security.sudo-rs.enable = true;
