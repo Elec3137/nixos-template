@@ -28,4 +28,8 @@
   environment.variables = {
     MANGOHUD = 1; # enable mangohud by default on all vulkan games
   };
+
+  # load ntsync, which can improve performance
+  # for games running through wine/proton using it
+  boot.kernelModules = [  "ntsync" ];
 }
