@@ -208,7 +208,6 @@
     helix
     tmux
     yt-dlp
-    libjxl
     trash-cli
     sshfs
     killall
@@ -220,24 +219,9 @@
     iftop
     compsize
 
-    # development
     delta
     python3
-    # rust
-    rustc
-    cargo
-    rust-analyzer
-    rustfmt
-    clippy
-    # shell(s)
-    fish-lsp
-    bash-language-server
-    # C/C++
-    gcc
-    clang
-    clang-analyzer
-    clang-tools
-    # nix
+
     nixfmt
     nixd
 
