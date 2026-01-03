@@ -9,7 +9,7 @@
   ];
 
   programs.chromium = {
-    enable = true;
+    # enable = true;
 
     # this won't work until https://github.com/NixOS/nixpkgs/pull/394028
     # package = pkgs.ungoogled-chromium;
@@ -23,6 +23,7 @@
       # "ocaahdebbfolfmndjeplogmgcagdmblk" # chromium web store extension for updating other extensions on chromium
     ];
 
+    # set a default search engine (since ungoogled-chromium is missing one)
     # note: this will make it impossible to change search engines while the module is enabled
     defaultSearchProviderEnabled = true;
     defaultSearchProviderSearchURL = "https://www.startpage.com/sp/search?query={searchTerms}";
