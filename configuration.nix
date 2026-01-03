@@ -31,13 +31,16 @@
   # see: https://lix.systems/about
   nix.package = pkgs.lixPackageSets.stable.lix;
   # overlays so that all nix tools use lix
-  nixpkgs.overlays = [ (final: prev: {
-    inherit (prev.lixPackageSets.stable)
-      nixpkgs-review
-      nix-eval-jobs
-      nix-fast-build
-      colmena;
-  }) ];
+  nixpkgs.overlays = [
+    (final: prev: {
+      inherit (prev.lixPackageSets.stable)
+        nixpkgs-review
+        nix-eval-jobs
+        nix-fast-build
+        colmena
+        ;
+    })
+  ];
 
   # enable useful nix tools, and the flakes system
   nix.settings.experimental-features = "nix-command flakes";
@@ -68,7 +71,7 @@
     # however systemd-boot does not support this configuration, so use grub instead
     grub = {
       # enable = true;
-    
+
       # modern installation
       device = "nodev";
       efiSupport = true;
@@ -134,10 +137,10 @@
   environment.shellAliases = {
     # make nixos-rebuild use sudo as needed
     # note that multiline-with-logs is only supported by lix
-    nixos-rebuild = /*sh*/ ''nixos-rebuild --ask-sudo-password --log-format multiline-with-logs'';
+    nixos-rebuild = /* sh */ ''nixos-rebuild --ask-sudo-password --log-format multiline-with-logs'';
 
     # make nix-shell preserve the user's $SHELL
-    nix-shell = /*sh*/ ''nix-shell --command "export SHELL=$SHELL"'';
+    nix-shell = /* sh */ ''nix-shell --command "export SHELL=$SHELL"'';
   };
 
   # avoid calling nix's command-not-found (doesn't work with flakes)
@@ -177,9 +180,9 @@
       commit.verbose = true; # show diffs in commit editor
 
       core.pager = "delta"; # depends on pkgs.delta!
-    	interactive.diffFilter = "delta --color-only";
-    	delta.navigate = true; # use n and N to move between diff sections
-    	delta.diff-highlight = true; # simpler mode, highlights inter-line changes
+      interactive.diffFilter = "delta --color-only";
+      delta.navigate = true; # use n and N to move between diff sections
+      delta.diff-highlight = true; # simpler mode, highlights inter-line changes
     };
   };
 

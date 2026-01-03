@@ -9,17 +9,19 @@
     # optional input: "NixOS profiles to optimize settings for different hardware"
     # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
-  outputs = { nixpkgs, ... }: {
-    # NOTE: 'nixos' is the default hostname
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      modules = [
-        ./configuration.nix
-        ./hardware-configuration.nix
-        ./graphical/default.nix
+  outputs =
+    { nixpkgs, ... }:
+    {
+      # NOTE: 'nixos' is the default hostname
+      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+        modules = [
+          ./configuration.nix
+          ./hardware-configuration.nix
+          ./graphical/default.nix
 
-        # nixos-hardware.nixosModules.YOUR_DEVICE
-        # add your device if it is listed here: https://github.com/NixOS/nixos-hardware
-      ];
+          # nixos-hardware.nixosModules.YOUR_DEVICE
+          # add your device if it is listed here: https://github.com/NixOS/nixos-hardware
+        ];
+      };
     };
-  };
 }

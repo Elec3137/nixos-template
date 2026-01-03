@@ -31,5 +31,5 @@
 
   # load ntsync, which can improve performance
   # for games running through wine/proton using it
-  boot.kernelModules = [  "ntsync" ];
+  boot.kernelModules = [ "ntsync" ];
 }

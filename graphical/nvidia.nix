@@ -5,7 +5,7 @@
 
 {
   # enable nvidia drivers (not just for xorg!)
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
