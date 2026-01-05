@@ -17,5 +17,5 @@
   # use virt-manager, a qemu GUI
   # programs.virt-manager.enable = true;
   # virtualisation.libvirtd.enable = true;
-  # users.users.nixosuser.extraGroups = [ "libvirtd" ];
+  # users.users.XXX.extraGroups = [ "libvirtd" ];
 }
