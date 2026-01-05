@@ -8,9 +8,6 @@
     # if you seperate configuration.nix into other files, add them here
   ];
 
-  # FIXME remember to set your time zone!
-  time.timeZone = "";
-
   # FIXME replace "XXX" with the username you'd like to use
   users.users.XXX = {
     isNormalUser = true;
@@ -253,6 +250,9 @@
   # leave this uncommented if you use any unfree packages/modules
   # even the "open" Nvidia drivers have proprietary userside components: https://wiki.nixos.org/wiki/NVIDIA
   nixpkgs.config.allowUnfree = true;
+
+  # set your time zone if you need to
+  # time.timeZone = null;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
