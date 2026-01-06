@@ -137,7 +137,7 @@
     nixos-rebuild = /* sh */ ''nixos-rebuild --ask-sudo-password --log-format multiline-with-logs'';
 
     # make nix-shell preserve the user's $SHELL
-    nix-shell = /* sh */ ''nix-shell --command "export SHELL=$SHELL"'';
+    nix-shell = /* sh */ ''nix-shell --command "export SHELL=$SHELL; $SHELL"'';
   };
 
   # avoid calling nix's command-not-found (doesn't work with flakes)
