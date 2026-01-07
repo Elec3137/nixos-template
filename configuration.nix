@@ -141,6 +141,7 @@
   };
 
   # avoid calling nix's command-not-found (doesn't work with flakes)
+  # (disabled by default in nixpkgs since 25.11)
   programs.command-not-found.enable = false;
   # instead you can use:
   # programs.nix-index.enable = true;
