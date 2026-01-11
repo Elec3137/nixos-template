@@ -139,10 +139,12 @@
     enableSSHSupport = true;
   };
 
-  # Java, if needed
-  # programs.java.enable = true;
-  # build java with JavaFX gui library
-  # programs.java.package = pkgs.jdk.override { enableJavaFX = true; };
+  programs.java = {
+    # enable = true;
+
+    # build java with JavaFX gui library (likely requires compilation)
+    # package = pkgs.jdk.override { enableJavaFX = true; };
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ];
