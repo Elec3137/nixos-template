@@ -15,9 +15,9 @@
       # NOTE: 'nixos' is the default hostname
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         modules = [
-          ./core/default.nix
+          ./core/mod.nix
           ./hardware-configuration.nix
-          ./graphical/default.nix
+          ./graphical/mod.nix
 
           # nixos-hardware.nixosModules.YOUR_DEVICE
           # add your device if it is listed here: https://github.com/NixOS/nixos-hardware
