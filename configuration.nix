@@ -131,6 +131,48 @@
   # this may degrade autocompletion
   documentation.man.generateCaches = false;
 
+  # Terminal MUltipleXer
+  programs.tmux = {
+    enable = true;
+
+    # this is a sin committed for ergonomics
+    # since "1" and "0" are quite far apart on most keyboards
+    baseIndex = 1;
+
+    keyMode = "vi";
+
+    # https://unix.stackexchange.com/questions/608142/whats-the-effect-of-escape-time-in-tmux
+    escapeTime = 50;
+
+    clock24 = true;
+
+    extraConfig = /* sh */ ''
+      set -g mouse on
+
+      # open new shells in the same working directory
+      bind '"' split-window -c "#{pane_current_path}"
+      bind % split-window -h -c "#{pane_current_path}"
+      bind c new-window -c "#{pane_current_path}"
+
+      ###### STYLING
+
+      set -g status-style 'fg=pink'
+
+      setw -g window-status-style 'fg=pink bg=black'
+      setw -g window-status-format ' #I #[fg=white]#W #[fg=pink]#F '
+
+      setw -g window-status-current-style 'fg=black bg=pink'
+      setw -g window-status-current-format ' #I #W #F '
+
+      set -g message-style 'fg=black bg=pink'
+
+      set -g mode-style 'fg=black bg=pink'
+
+      set -g pane-border-style 'fg=grey'
+      set -g pane-active-border-style 'fg=pink'
+    '';
+  };
+
   environment.shellAliases = {
     # make nixos-rebuild use sudo as needed
     # note that multiline-with-logs is only supported by lix
@@ -207,7 +249,6 @@
   environment.systemPackages = with pkgs; [
     # cli tools
     helix
-    tmux
     yt-dlp
     trash-cli
     sshfs
