@@ -38,6 +38,13 @@
         ;
     })
   ];
+  # only lix supports log-format: multiline-with-logs
+  environment.shellAliases = {
+    # also makes nixos-rebuild use sudo as needed (not lix exclusive)
+    nixos-rebuild = /* sh */ ''nixos-rebuild --ask-sudo-password --log-format multiline-with-logs'';
+
+    nix = /* sh */ ''nix --log-format multiline-with-logs'';
+  };
 
   # enable useful nix tools, and the flakes system
   nix.settings.experimental-features = "nix-command flakes";

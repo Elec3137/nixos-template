@@ -81,10 +81,6 @@
   };
 
   environment.shellAliases = {
-    # make nixos-rebuild use sudo as needed
-    # note that multiline-with-logs is only supported by lix
-    nixos-rebuild = /* sh */ ''nixos-rebuild --ask-sudo-password --log-format multiline-with-logs'';
-
     # make nix-shell preserve the user's $SHELL
     nix-shell = /* sh */ ''nix-shell --command "export SHELL=$SHELL; $SHELL"'';
   };
