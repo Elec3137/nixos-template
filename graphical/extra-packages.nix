@@ -30,4 +30,8 @@
     btop-rocm
     nvtopPackages.amd
   ];
+
+  # otherwise kleopatra failes with "No Pinentry"
+  programs.gnupg.agent.enable = true;
+
 }

@@ -134,11 +134,6 @@
   # only accept key authentication, for security
   services.openssh.settings.PasswordAuthentication = false;
 
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-
   programs.java = {
     # enable = true;
 

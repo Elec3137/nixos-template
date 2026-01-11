@@ -25,8 +25,6 @@
     nixfmt
     nixd
 
-    gnupg
-
     ffmpeg
   ];
 
