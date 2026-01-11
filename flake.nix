@@ -15,7 +15,7 @@
       # NOTE: 'nixos' is the default hostname
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         modules = [
-          ./configuration.nix
+          ./core/default.nix
           ./hardware-configuration.nix
           ./graphical/default.nix
 
