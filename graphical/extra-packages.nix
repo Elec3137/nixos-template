@@ -8,6 +8,9 @@
     # video editor
     kdePackages.kdenlive
 
+    # image drawing/editing
+    krita
+
     # office suite
     libreoffice-qt-fresh
 
@@ -29,6 +32,9 @@
     # switch these based on your gpu
     btop-rocm
     nvtopPackages.amd
+
+    # virtual keyboard
+    kdePackages.plasma-keyboard
   ];
 
   # otherwise kleopatra failes with "No Pinentry"
